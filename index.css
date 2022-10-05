@@ -19,15 +19,20 @@ body {
     text-align: center;
 }
 
-.toggle {
+.button-container {
     position: absolute;
     right: 10px;
     bottom: 10px;
+}
+
+button {
     background-color: #fff;
-    color: green;
+    color: #7a7a7a;
     width: 40px;
     height: 40px;
+    margin-top: 5px;
     opacity: 0.4;
+    border: none;
     font-size: 20px;
     border-radius: 50px;
     display: flex;
@@ -35,7 +40,7 @@ body {
     align-items: center;
 }
 
-.toggle:hover {
+button:hover {
     opacity: 1;
     cursor: pointer;
     font-size: 24px;

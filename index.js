@@ -1,12 +1,17 @@
 const container = document.querySelector('.container');
 const body = document.body;
-const toggle = document.querySelector('.toggle');
+const toggleButton = document.querySelector('.toggle');
+const copyButton = document.querySelector('.copy');
 const date = new Date();
 
 let month = date.getMonth();
 let day = date.getDate();
 let yearOne = (+date.getFullYear().toString().slice(0,2));
 let yearTwo = (+date.getFullYear().toString().slice(2,4));
+
+function copyToClipboard() {
+    navigator.clipboard.writeText(body.style.backgroundColor);
+}
 
 const addLeadingZero = function(number) {
     return String(number).padStart(2, '0');
@@ -43,7 +48,8 @@ const cmykToRGB = function(c, m, y, k) {
 
 const changeBg = function(r, g, b) {
     body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    toggle.style.color = `rgb(${r}, ${g}, ${b})`;
+    toggleButton.style.color = `rgb(${r}, ${g}, ${b})`;
+    copyButton.style.color = `rgb(${r}, ${g}, ${b})`;
     container.innerHTML = `${dateString}
                             <br>
                             rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
@@ -64,5 +70,7 @@ const handleBg = function() {
     }
     changeBg(rgb[0], rgb[1], rgb[2]);
 }
-toggle.addEventListener('click', toggleMode);
+
+toggleButton.addEventListener('click', toggleMode);
+copyButton.addEventListener('click', copyToClipboard);
 handleBg();
