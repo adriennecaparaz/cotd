@@ -14,6 +14,7 @@ body {
     box-sizing: border-box;
     width: 100vw;
     height: 100vh;
+    max-height: -webkit-fill-available;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -43,6 +44,5 @@ button {
 button:hover {
     opacity: 1;
     cursor: pointer;
-    font-size: 24px;
-    transition: opacity 0.5s, font-size 0.5s;
+    transition: opacity 0.5s;
 }
