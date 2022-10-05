@@ -2,6 +2,7 @@ const container = document.querySelector('.container');
 const body = document.body;
 const toggleButton = document.querySelector('.toggle');
 const copyButton = document.querySelector('.copy');
+const copyNotif = document.querySelector('.copied');
 const date = new Date();
 
 let month = date.getMonth();
@@ -11,6 +12,8 @@ let yearTwo = (+date.getFullYear().toString().slice(2,4));
 
 function copyToClipboard() {
     navigator.clipboard.writeText(body.style.backgroundColor);
+    copyNotif.style.opacity = 1;
+    setTimeout(() => copyNotif.style.opacity = 0, 1000);
 }
 
 const addLeadingZero = function(number) {

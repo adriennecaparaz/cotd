@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comfortaa&display=swap');
 
 body {
     box-sizing: border-box;
@@ -24,6 +24,26 @@ body {
     position: absolute;
     right: 10px;
     bottom: 10px;
+    display: flex;
+}
+
+.copied {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-family: 'Comfortaa', cursive;
+    width: max-content;
+    height: 40px;
+    border-radius: 50px;
+    margin: 0 5px;
+    opacity: 0;
+    transition: opacity 0.5s;
+
+    -webkit-user-select: none;/        
+    -moz-user-select: none;
+    -ms-user-select: none; 
+    user-select: none; 
 }
 
 button {
@@ -31,7 +51,7 @@ button {
     color: #7a7a7a;
     width: 40px;
     height: 40px;
-    margin-top: 5px;
+    margin-left: 5px;
     opacity: 0.4;
     border: none;
     font-size: 20px;
