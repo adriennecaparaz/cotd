@@ -33,20 +33,12 @@ const toggleMode = function() {
     handleBg();
 }
 
-const cmykToCMY = function(c, m, y, k) {
+const cmykToRGB = function(c, m, y, k) {
     c = ( c * ( 1 - k ) + k );
     m = ( m * ( 1 - k ) + k );
     y = ( y * ( 1 - k ) + k );
 
-    return [c, m, y];
-}
-
-const cmyToRGB = function(c, m, y) {
-    let r = ( 1 - c ) * 255;
-    let g = ( 1 - m ) * 255;
-    let b = ( 1 - y ) * 255;
-
-    return [r, g, b];
+    return [( 1 - c ) * 255, ( 1 - m ) * 255, ( 1 - y ) * 255];
 }
 
 const changeBg = function(r, g, b) {
@@ -58,19 +50,18 @@ const changeBg = function(r, g, b) {
 }
 
 const handleBg = function() {
-    let cmy;
+    let rgb;
     switch (valueFirst) {
         case 'month':
-            cmy = cmykToCMY(month / 100, day / 100, yearOne / 100, yearTwo / 100);
+            rgb = cmykToRGB(month / 100, day / 100, yearOne / 100, yearTwo / 100);
             break;
         case 'day':
-            cmy = cmykToCMY(day / 100, month / 100, yearOne / 100, yearTwo / 100);
+            rgb = cmykToRGB(day / 100, month / 100, yearOne / 100, yearTwo / 100);
             break;
         case 'year':
-            cmy = cmykToCMY(yearOne / 100, yearTwo / 100, month / 100, day / 100);
+            rgb = cmykToRGB(yearOne / 100, yearTwo / 100, month / 100, day / 100);
             break;
     }
-    let rgb = cmyToRGB(cmy[0], cmy[1], cmy[2]);
     changeBg(rgb[0], rgb[1], rgb[2]);
 }
 toggle.addEventListener('click', toggleMode);
