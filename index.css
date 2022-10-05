@@ -7,6 +7,7 @@ body {
     font-family: 'Abril Fatface', cursive;
     font-size: 24px;
     color: #fff;
+    transition: background-color 0.5s ease;
 }
 
 .container {
