@@ -1,5 +1,6 @@
 const container = document.querySelector('.container');
 const body = document.body;
+const toggle = document.querySelector('.toggle');
 const date = new Date();
 
 let month = date.getMonth() / 100;
@@ -28,6 +29,7 @@ let rgb = cmyToRGB(cmy[0], cmy[1], cmy[2])
 
 const changeBg = function(r, g, b) {
     body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    toggle.style.color = `rgb(${r}, ${g}, ${b})`;
     container.textContent = `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
 }
 
